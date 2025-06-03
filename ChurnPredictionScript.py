@@ -9,6 +9,7 @@ Created on Tue Feb 13 15:49:52 2024
 ### Import Python Packages ###
 import numpy as np
 import pandas as pd
+import os
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -194,8 +195,11 @@ def classifier_performance(X_train, y_train, classifier, classifier_name, classi
 
 ### Basic Data statistics ###
 
+# Determine path to data files relative to this script
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Load training set
-train_df = pd.read_csv('/opt/anaconda3/envs/BankCustomerChurnPrediction/Dataset/train.csv', encoding='utf-8')
+train_df = pd.read_csv(os.path.join(DATA_DIR, 'train.csv'), encoding='utf-8')
 
 # Check the number of rows and columns
 print('Training set contains {} rows and {} columns.'.format(train_df.shape[0], train_df.shape[1]))
@@ -496,7 +500,7 @@ learning_curve_plot(tuned_voting_soft, X_train, y_train, ax2)
 # and then together in an ensemble ###
 
 # Load test set and store as a dataframe
-X_test = pd.read_csv('/opt/anaconda3/envs/BankCustomerChurnPrediction/Dataset/test.csv', encoding='utf-8')
+X_test = pd.read_csv(os.path.join(DATA_DIR, 'test.csv'), encoding='utf-8')
 
 # Perform pre-processing steps on test set
 X_test.drop(['id', 'CustomerId', 'Surname'], axis=1, inplace=True)
