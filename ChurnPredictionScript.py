@@ -126,7 +126,7 @@ def confusion_matrix_plot(conf_matrix, ax):
 
     ax.set_ylabel('True Label')
     ax.set_yticks([0.25, 1.25])
-    ax.set_yticklabels(['Retained', 'Churned']);
+    ax.set_yticklabels(['Retained', 'Churned'])
 
 
 def learning_curve_plot(estimator, X, y, ax, cv=None, train_sizes=np.linspace(0.1, 1.0, 5)):
@@ -153,7 +153,7 @@ def learning_curve_plot(estimator, X, y, ax, cv=None, train_sizes=np.linspace(0.
     # Set labels and legend for plot
     ax.set_xlabel('Training Examples')
     ax.set_ylabel('Score')
-    ax.legend(loc='best', fontsize=16);
+    ax.legend(loc='best', fontsize=16)
 
 
 def classifier_performance(X_train, y_train, classifier, classifier_name, classifier_name_abv):
@@ -188,7 +188,9 @@ def classifier_performance(X_train, y_train, classifier, classifier_name, classi
     confusion_matrix_plot(cm, ax1)
     learning_curve_plot(classifier.best_estimator_, X_train, y_train, ax2)
 
-    plt.tight_layout();
+    plt.tight_layout()
+
+    print('Hello')
 
 
 ############################################################################################################
